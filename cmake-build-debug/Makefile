@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Users/kliff/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-1/192.6817.18/CLion.app/Contents/bin/cmake/mac/bin/cmake"
+CMAKE_COMMAND = /home/kliff/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.7142.39/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = "/Users/kliff/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-1/192.6817.18/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E remove -f
+RM = /home/kliff/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.7142.39/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/kliff/Data/Projects/C/tp
+CMAKE_SOURCE_DIR = /data/projects/c++/tp-cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/kliff/Data/Projects/C/tp/cmake-build-debug
+CMAKE_BINARY_DIR = /data/projects/c++/tp-cpp/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /Users/kliff/Data/Projects/C/tp/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"/Users/kliff/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-1/192.6817.18/CLion.app/Contents/bin/cmake/mac/bin/cmake" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/kliff/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.7142.39/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"/Users/kliff/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-1/192.6817.18/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/kliff/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.7142.39/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kliff/Data/Projects/C/tp/cmake-build-debug/CMakeFiles /Users/kliff/Data/Projects/C/tp/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/projects/c++/tp-cpp/cmake-build-debug/CMakeFiles /data/projects/c++/tp-cpp/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/kliff/Data/Projects/C/tp/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /data/projects/c++/tp-cpp/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,44 +111,98 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named tp
+# Target rules for targets named tp_cpp
 
 # Build rule for target.
-tp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tp
-.PHONY : tp
+tp_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tp_cpp
+.PHONY : tp_cpp
 
 # fast build rule for target.
-tp/fast:
-	$(MAKE) -f CMakeFiles/tp.dir/build.make CMakeFiles/tp.dir/build
-.PHONY : tp/fast
+tp_cpp/fast:
+	$(MAKE) -f CMakeFiles/tp_cpp.dir/build.make CMakeFiles/tp_cpp.dir/build
+.PHONY : tp_cpp/fast
 
-main.o: main.cpp.o
+src/Dominios.o: src/Dominios.cpp.o
 
-.PHONY : main.o
+.PHONY : src/Dominios.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/tp.dir/build.make CMakeFiles/tp.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/Dominios.cpp.o:
+	$(MAKE) -f CMakeFiles/tp_cpp.dir/build.make CMakeFiles/tp_cpp.dir/src/Dominios.cpp.o
+.PHONY : src/Dominios.cpp.o
 
-main.i: main.cpp.i
+src/Dominios.i: src/Dominios.cpp.i
 
-.PHONY : main.i
+.PHONY : src/Dominios.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/tp.dir/build.make CMakeFiles/tp.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/Dominios.cpp.i:
+	$(MAKE) -f CMakeFiles/tp_cpp.dir/build.make CMakeFiles/tp_cpp.dir/src/Dominios.cpp.i
+.PHONY : src/Dominios.cpp.i
 
-main.s: main.cpp.s
+src/Dominios.s: src/Dominios.cpp.s
 
-.PHONY : main.s
+.PHONY : src/Dominios.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/tp.dir/build.make CMakeFiles/tp.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/Dominios.cpp.s:
+	$(MAKE) -f CMakeFiles/tp_cpp.dir/build.make CMakeFiles/tp_cpp.dir/src/Dominios.cpp.s
+.PHONY : src/Dominios.cpp.s
+
+src/Entidades.o: src/Entidades.cpp.o
+
+.PHONY : src/Entidades.o
+
+# target to build an object file
+src/Entidades.cpp.o:
+	$(MAKE) -f CMakeFiles/tp_cpp.dir/build.make CMakeFiles/tp_cpp.dir/src/Entidades.cpp.o
+.PHONY : src/Entidades.cpp.o
+
+src/Entidades.i: src/Entidades.cpp.i
+
+.PHONY : src/Entidades.i
+
+# target to preprocess a source file
+src/Entidades.cpp.i:
+	$(MAKE) -f CMakeFiles/tp_cpp.dir/build.make CMakeFiles/tp_cpp.dir/src/Entidades.cpp.i
+.PHONY : src/Entidades.cpp.i
+
+src/Entidades.s: src/Entidades.cpp.s
+
+.PHONY : src/Entidades.s
+
+# target to generate assembly for a file
+src/Entidades.cpp.s:
+	$(MAKE) -f CMakeFiles/tp_cpp.dir/build.make CMakeFiles/tp_cpp.dir/src/Entidades.cpp.s
+.PHONY : src/Entidades.cpp.s
+
+src/main.o: src/main.cpp.o
+
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/tp_cpp.dir/build.make CMakeFiles/tp_cpp.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/tp_cpp.dir/build.make CMakeFiles/tp_cpp.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/tp_cpp.dir/build.make CMakeFiles/tp_cpp.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -157,11 +211,17 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... tp_cpp"
 	@echo "... edit_cache"
-	@echo "... tp"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... src/Dominios.o"
+	@echo "... src/Dominios.i"
+	@echo "... src/Dominios.s"
+	@echo "... src/Entidades.o"
+	@echo "... src/Entidades.i"
+	@echo "... src/Entidades.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 
