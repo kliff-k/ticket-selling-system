@@ -1,4 +1,0 @@
-/home/kliff/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/192.7142.39/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /data/projects/c++/tp-cpp
--- Configuring done
--- Generating done
--- Build files have been written to: /data/projects/c++/tp-cpp/cmake-build-debug
