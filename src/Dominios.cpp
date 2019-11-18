@@ -235,10 +235,8 @@ Cpf::Cpf(const string& cpf) noexcept(false)
 
 void Cpf::validar(string cpf) noexcept(false)
 {
-    string replace = ".-";
-    cpf.erase(remove_if(cpf.begin(), cpf.end(),[&replace](const char& c) {
-                          return replace.find(c) != std::string::npos;
-                      }),cpf.end());
+    cpf.erase(std::remove(cpf.begin(), cpf.end(), '.'), cpf.end());
+    cpf.erase(std::remove(cpf.begin(), cpf.end(), '-'), cpf.end());
 
     if(cpf.length() < 11)
         throw invalid_argument("Cpf inválido (XXX.XXX.XXX-XX).");

@@ -3,8 +3,9 @@ project(tp_cpp)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(tp_cpp src/main.cpp src/Dominios.cpp src/Dominios.h src/Entidades.cpp src/Entidades.h)
+add_executable(tp_cpp src/main.cpp src/Dominios.cpp src/Dominios.h src/Entidades.cpp src/Entidades.h src/Servicos.cpp src/Servicos.h src/Apresentacao.cpp src/Apresentacao.h)
 
+set(CMAKE_CXX_FLAGS "-lpqxx")
 #cmake_minimum_required(VERSION 3.14)
 #project(tp)
 #

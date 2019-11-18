@@ -9,8 +9,11 @@
 #include <regex>
 #include <numeric>
 #include <utility>
+#include <list>
+#include <pqxx/pqxx>
 //---------------------------------------------------------------------------
 using namespace std;
+using namespace pqxx;
 //---------------------------------------------------------------------------
 
 /**

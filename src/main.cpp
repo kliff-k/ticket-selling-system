@@ -1,4 +1,3 @@
-#include "Entidades.h"
 /**
  * Função principal do sistema:
  * SUPER STAR SOCCER STADIUM STICKER SELLING SYSTEM (S7)
@@ -10,9 +9,17 @@
  * @return 0
  */
 int main() {
-    Usuario usuario;
-    Cpf cpf;
-    cpf.setValor("024.429.761-45");
-    usuario.setCpf(cpf);
+
+//    // Instancia e executa a autenticação.
+//    CntrAutenticacao cntrA;
+//    cntrA.executar();
+//
+//    // Instancia e executa a navegação.
+//    CntrNavegacao cntrB;
+//    cntrB.executar();
+//
+//    system("PAUSE");
+//    return EXIT_SUCCESS;
+
     return 0;
 }
