@@ -1,10 +1,17 @@
-//---------------------------------------------------------------------------
+//-------------------------DEF-------------------------//
+
 #ifndef TP_CPP_ENTIDADES_H
 #define TP_CPP_ENTIDADES_H
-//---------------------------------------------------------------------------
-#include "Dominios.h"
-//---------------------------------------------------------------------------
 
+//----------------------INCLUDES-----------------------//
+
+#include "Dominios.h"
+
+//----------------------CLASSES------------------------//
+
+/**
+ * Usuário do sistema
+ */
 class Usuario {
 private:
     Cpf cpf;
@@ -18,6 +25,9 @@ public:
     void setSenha(const Senha&);
 };
 
+/**
+ * Jogo cadastrado no sistema
+ */
 class Jogo {
 private:
     CodigoJogo codigoJogo;
@@ -40,7 +50,9 @@ public:
     void setTipo(const Tipo&);
 };
 
-// TODO: Qual a diferença de partida de Jogo??
+/**
+ * Partida vinculada a um jogo cadastrado no sistema
+ */
 class Partida {
 private:
     CodigoJogo codigoJogo;
@@ -63,6 +75,9 @@ public:
     void setDisponibilidade(const Disponibilidade&);
 };
 
+/**
+ * Ingresso para um jogo no sistema
+ */
 class Ingresso {
 private:
     CodigoIngresso codigoIngresso;
@@ -73,6 +88,9 @@ public:
     void setCodigoIngresso(const CodigoIngresso&);
 };
 
+/**
+ * Cartão de crédito registrado no sistema para efetuar pagamentos/compras
+ */
 class CartaoCredito {
 private:
     NumeroCartao numeroCartao;
@@ -89,68 +107,135 @@ public:
     void setDataValidade(const DataValidade&);
 };
 
+//----------------------INLINE-------------------------//
+
+/**
+ * Recupera CPF do usuário
+ * @return Cpf
+ */
 inline Cpf Usuario::getCpf() const {
     return cpf;
 }
-
+/**
+ * Recupera senha do usuário
+ * @return Senha
+ */
 inline Senha Usuario::getSenha() const {
     return senha;
 }
 
+/**
+ * Recupera código do jogo
+ * @return CodigoJogo
+ */
 inline CodigoJogo Jogo::getCodigoJogo() const {
     return codigoJogo;
 }
 
+/**
+ * Recupera nome do jogo
+ * @return NomeJogo
+ */
 inline NomeJogo Jogo::getNomeJogo() const {
     return nomeJogo;
 }
 
+/**
+ * Recupera cidade do jogo
+ * @return Cidade
+ */
 inline Cidade Jogo::getCidade() const {
     return cidade;
 }
 
+/**
+ * Recupera estado do jogo
+ * @return Estado
+ */
 inline Estado Jogo::getEstado() const {
     return estado;
 }
 
+/**
+ * Recupera tipo do jogo
+ * @return Tipo
+ */
 inline Tipo Jogo::getTipo() const {
     return tipo;
 }
 
+/**
+ * Recupera código do jogo
+ * @return CodigoJogo
+ */
 inline CodigoJogo Partida::getCodigoJogo() const {
     return CodigoJogo();
 }
 
+/**
+ * Recupera data da partida
+ * @return Data
+ */
 inline Data Partida::getData() const {
     return Data();
 }
 
+/**
+ * Recupera horário da partida
+ * @return Horario
+ */
 inline Horario Partida::getHorario() const {
     return Horario();
 }
 
+/**
+ * Recupera preço do ingresso da partida
+ * @return Preco
+ */
 inline Preco Partida::getPreco() const {
     return Preco();
 }
 
+/**
+ * Recupera número de assentos disponíveis na partida
+ * @return Disponibilidade
+ */
 inline Disponibilidade Partida::getDisponibilidade() const {
     return Disponibilidade();
 }
 
+/**
+ * Recupera código do ingresso
+ * @return CodigoIngresso
+ */
 inline CodigoIngresso Ingresso::getCodigoIngresso() const {
     return CodigoIngresso();
 }
 
+/**
+ * Recupera número do cartão de crédito
+ * @return NumeroCartao
+ */
 inline NumeroCartao CartaoCredito::getNumeroCartao() const {
     return NumeroCartao();
 }
 
+/**
+ * Recupera código de segurança do cartão de crédito
+ * @return CodigoSeguranca
+ */
 inline CodigoSeguranca CartaoCredito::getCodigoSeguranca() const {
     return CodigoSeguranca();
 }
 
+/**
+ * Recupera a data de validade do cartão de crédito
+ * @return DataValidade
+ */
 inline DataValidade CartaoCredito::getDataValidade() const {
     return DataValidade();
 }
+
+//-------------------------DEF-------------------------//
 
 #endif //TP_CPP_ENTIDADES_H

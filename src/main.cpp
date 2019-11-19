@@ -1,3 +1,5 @@
+#include "Apresentacao.h"
+
 /**
  * Função principal do sistema:
  * SUPER STAR SOCCER STADIUM STICKER SELLING SYSTEM (S7)
@@ -9,17 +11,12 @@
  * @return 0
  */
 int main() {
-
-//    // Instancia e executa a autenticação.
-//    CntrAutenticacao cntrA;
-//    cntrA.executar();
-//
-//    // Instancia e executa a navegação.
-//    CntrNavegacao cntrB;
-//    cntrB.executar();
-//
-//    system("PAUSE");
-//    return EXIT_SUCCESS;
+    // Exibe a tela de login da aplicação
+    Login login;
+    login.executar();
+    // Exibe a tela principal e inicia a navegação
+    TelaPrincipal telaPrincipal;
+    telaPrincipal.executar();
 
     return 0;
 }

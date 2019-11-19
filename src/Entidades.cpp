@@ -1,86 +1,174 @@
-//---------------------------------------------------------------------------
+//----------------------INCLUDES-----------------------//
+
 #include "Entidades.h"
-//---------------------------------------------------------------------------
 
-Usuario::Usuario(Cpf cpf, Senha senha):
-    cpf(move(cpf)), senha(move(senha)){}
+//-------------------IMPLEMENTATIONS-------------------//
 
-void Usuario::setCpf(const Cpf& cpf) {
-    this->cpf = cpf;
+/**
+ * Construtor do Usuario
+ * @param cpf
+ * @param senha
+ */
+Usuario::Usuario(Cpf cpf, Senha senha):cpf(move(cpf)), senha(move(senha)){}
+
+/**
+ * Atribui CPF ao Usuário
+ * @param cpf
+ */
+void Usuario::setCpf(const Cpf& cpfNovo) {
+    this->cpf = cpfNovo;
 }
 
-void Usuario::setSenha(const Senha& senha) {
-    this->senha = senha;
-}
-//---------------------------------------------------------------------------
-
-Jogo::Jogo(CodigoJogo codigoJogo, NomeJogo nomeJogo, Cidade cidade, Estado estado, Tipo tipo):
-    codigoJogo(move(codigoJogo)), nomeJogo(move(nomeJogo)), cidade(move(cidade)), estado(move(estado)), tipo(move(tipo)){}
-
-void Jogo::setCodigoJogo(const CodigoJogo& codigoJogo) {
-    this->codigoJogo = codigoJogo;
+/**
+ * Atribui senha ao usuário
+ * @param senha
+ */
+void Usuario::setSenha(const Senha& senhaNova) {
+    this->senha = senhaNova;
 }
 
-void Jogo::setNomeJogo(const NomeJogo& nomeJogo) {
-    this->nomeJogo = nomeJogo;
+/**
+ * Construtor do Jogo
+ * @param codigoJogo
+ * @param nomeJogo
+ * @param cidade
+ * @param estado
+ * @param tipo
+ */
+Jogo::Jogo(CodigoJogo codigoJogo, NomeJogo nomeJogo, Cidade cidade, Estado estado, Tipo tipo): codigoJogo(move(codigoJogo)), nomeJogo(move(nomeJogo)), cidade(move(cidade)), estado(move(estado)), tipo(move(tipo)){}
+
+/**
+ * Atribui código ao jogo
+ * @param codigoJogo
+ */
+void Jogo::setCodigoJogo(const CodigoJogo& codigoJogoNovo) {
+    this->codigoJogo = codigoJogoNovo;
 }
 
-void Jogo::setCidade(const Cidade& cidade) {
-    this->cidade = cidade;
+/**
+ * Atribui nome ao jogo
+ * @param nomeJogo
+ */
+void Jogo::setNomeJogo(const NomeJogo& nomeJogoNovo) {
+    this->nomeJogo = nomeJogoNovo;
 }
 
-void Jogo::setEstado(const Estado& estado) {
-    this->estado = estado;
+/**
+ * Atribui cidade ao jogo
+ * @param cidade
+ */
+void Jogo::setCidade(const Cidade& cidadeNova) {
+    this->cidade = cidadeNova;
 }
 
-void Jogo::setTipo(const Tipo& tipo) {
-    this->tipo = tipo;
-}
-//---------------------------------------------------------------------------
-
-Partida::Partida(CodigoJogo codigoJogo, Data data, Horario horario, Preco preco, Disponibilidade disponibilidade):
-    codigoJogo(move(codigoJogo)), data(move(data)), horario(move(horario)), preco(move(preco)), disponibilidade(move(disponibilidade)){}
-
-void Partida::setCodigoJogo(const CodigoJogo & codigoJogo) {
-    this->codigoJogo = codigoJogo;
+/**
+ * Atribui estado ao jogo
+ * @param estado
+ */
+void Jogo::setEstado(const Estado& estadoNovo) {
+    this->estado = estadoNovo;
 }
 
-void Partida::setData(const Data& data) {
-    this->data = data;
+/**
+ * Atribui tipo ao jogo
+ * @param tipo
+ */
+void Jogo::setTipo(const Tipo& tipoNovo) {
+    this->tipo = tipoNovo;
 }
 
-void Partida::setHorario(const Horario& horario) {
-    this->horario = horario;
+/**
+ * Contrutor da Partida
+ * @param codigoJogo
+ * @param data
+ * @param horario
+ * @param preco
+ * @param disponibilidade
+ */
+Partida::Partida(CodigoJogo codigoJogo, Data data, Horario horario, Preco preco, Disponibilidade disponibilidade): codigoJogo(move(codigoJogo)), data(move(data)), horario(move(horario)), preco(move(preco)), disponibilidade(move(disponibilidade)){}
+
+/**
+ * Atribui código à partida
+ * @param codigoJogo
+ */
+void Partida::setCodigoJogo(const CodigoJogo & codigoJogoNovo) {
+    this->codigoJogo = codigoJogoNovo;
 }
 
-void Partida::setPreco(const Preco& preco) {
-    this->preco = preco;
+/**
+ * Atribui data à partida
+ * @param data
+ */
+void Partida::setData(const Data& dataNova) {
+    this->data = dataNova;
 }
 
-void Partida::setDisponibilidade(const Disponibilidade& disponibilidade) {
-    this->disponibilidade = disponibilidade;
-}
-//---------------------------------------------------------------------------
-
-Ingresso::Ingresso(CodigoIngresso codigoIngresso):
-    codigoIngresso(move(codigoIngresso)){}
-
-void Ingresso::setCodigoIngresso(const CodigoIngresso& codigoIngresso) {
-    this->codigoIngresso = codigoIngresso;
-}
-//---------------------------------------------------------------------------
-
-CartaoCredito::CartaoCredito(NumeroCartao numeroCartao, CodigoSeguranca codigoSeguranca, DataValidade dataValidade):
-    numeroCartao(move(numeroCartao)), codigoSeguranca(move(codigoSeguranca)), dataValidade(move(dataValidade)){}
-
-void CartaoCredito::setNumeroCartao(const NumeroCartao& numeroCartao) {
-    this->numeroCartao = numeroCartao;
+/**
+ * Atribui horário à partida
+ * @param horario
+ */
+void Partida::setHorario(const Horario& horarioNovo) {
+    this->horario = horarioNovo;
 }
 
-void CartaoCredito::setCodigoSeguranca(const CodigoSeguranca& codigoSeguranca) {
-    this->codigoSeguranca = codigoSeguranca;
+/**
+ * Atribui preço à partida
+ * @param preco
+ */
+void Partida::setPreco(const Preco& precoNovo) {
+    this->preco = precoNovo;
 }
 
-void CartaoCredito::setDataValidade(const DataValidade& dataValidade) {
-    this->dataValidade = dataValidade;
+/**
+ * Atribui disponibilidade à partida
+ * @param disponibilidade
+ */
+void Partida::setDisponibilidade(const Disponibilidade& disponibilidadeNova) {
+    this->disponibilidade = disponibilidadeNova;
+}
+
+/**
+ * Construtor do Ingresso
+ * @param codigoIngresso
+ */
+Ingresso::Ingresso(CodigoIngresso codigoIngresso): codigoIngresso(move(codigoIngresso)){}
+
+/**
+ * Atribui código ao ingresso
+ * @param codigoIngresso
+ */
+void Ingresso::setCodigoIngresso(const CodigoIngresso& codigoIngressoNovo) {
+    this->codigoIngresso = codigoIngressoNovo;
+}
+
+/**
+ * Construtor do CartaoCredito
+ * @param numeroCartao
+ * @param codigoSeguranca
+ * @param dataValidade
+ */
+CartaoCredito::CartaoCredito(NumeroCartao numeroCartao, CodigoSeguranca codigoSeguranca, DataValidade dataValidade): numeroCartao(move(numeroCartao)), codigoSeguranca(move(codigoSeguranca)), dataValidade(move(dataValidade)){}
+
+/**
+ * Atribui número ao cartão de crédito
+ * @param numeroCartao
+ */
+void CartaoCredito::setNumeroCartao(const NumeroCartao& numeroCartaoNovo) {
+    this->numeroCartao = numeroCartaoNovo;
+}
+
+/**
+ * Atribui código de segurança ao cartão de crédito
+ * @param codigoSeguranca
+ */
+void CartaoCredito::setCodigoSeguranca(const CodigoSeguranca& codigoSegurancaNovo) {
+    this->codigoSeguranca = codigoSegurancaNovo;
+}
+
+/**
+ * Atribui data de validade ao cartão de crédito
+ * @param dataValidade
+ */
+void CartaoCredito::setDataValidade(const DataValidade& dataValidadeNova) {
+    this->dataValidade = dataValidadeNova;
 }
