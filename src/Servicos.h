@@ -55,7 +55,7 @@ public:
  */
 class ComandoPesquisarUsuario:public Consulta {
 public:
-    explicit ComandoPesquisarUsuario(Cpf);
+    explicit ComandoPesquisarUsuario(const Cpf&);
     Usuario getResultado() noexcept(false);
 };
 
@@ -64,7 +64,7 @@ public:
  */
 class ComandoCadastrarUsuario:public Consulta {
 public:
-    explicit ComandoCadastrarUsuario(Usuario);
+    explicit ComandoCadastrarUsuario(const Usuario&);
 };
 
 /**
@@ -72,7 +72,7 @@ public:
  */
 class ComandoAtualizarUsuario:public Consulta {
 public:
-    explicit ComandoAtualizarUsuario(Usuario);
+    explicit ComandoAtualizarUsuario(const Usuario&);
 };
 
 /**
@@ -80,7 +80,7 @@ public:
  */
 class ComandoRemoverUsuario:public Consulta {
 public:
-    explicit ComandoRemoverUsuario(Cpf);
+    explicit ComandoRemoverUsuario(const Cpf&);
 };
 
 /**
@@ -88,7 +88,7 @@ public:
  */
 class ComandoPesquisarJogo:public Consulta {
 public:
-    explicit ComandoPesquisarJogo(CodigoJogo);
+    explicit ComandoPesquisarJogo(const CodigoJogo&);
     Jogo getResultado() noexcept(false);
 };
 
@@ -97,7 +97,7 @@ public:
  */
 class ComandoCadastrarJogo:public Consulta {
 public:
-    explicit ComandoCadastrarJogo(Jogo);
+    explicit ComandoCadastrarJogo(const Jogo&);
 };
 
 /**
@@ -105,7 +105,7 @@ public:
  */
 class ComandoAtualizarJogo:public Consulta {
 public:
-    explicit ComandoAtualizarJogo(Jogo);
+    explicit ComandoAtualizarJogo(const Jogo&);
 };
 
 /**
@@ -113,7 +113,7 @@ public:
  */
 class ComandoRemoverJogo:public Consulta {
 public:
-    explicit ComandoRemoverJogo(CodigoJogo);
+    explicit ComandoRemoverJogo(const CodigoJogo&);
 };
 
 /**
@@ -121,7 +121,7 @@ public:
  */
 class ComandoPesquisarPartida:public Consulta {
 public:
-    explicit ComandoPesquisarPartida(CodigoJogo);
+    explicit ComandoPesquisarPartida(const CodigoJogo&);
     Partida getResultado() noexcept(false);
 };
 
@@ -130,7 +130,7 @@ public:
  */
 class ComandoCadastrarPartida:public Consulta {
 public:
-    explicit ComandoCadastrarPartida(Partida);
+    explicit ComandoCadastrarPartida(const Partida&);
 };
 
 /**
@@ -138,7 +138,7 @@ public:
  */
 class ComandoAtualizarPartida:public Consulta {
 public:
-    explicit ComandoAtualizarPartida(Partida);
+    explicit ComandoAtualizarPartida(const Partida&);
 };
 
 /**
@@ -146,7 +146,7 @@ public:
  */
 class ComandoRemoverPartida:public Consulta {
 public:
-    explicit ComandoRemoverPartida(CodigoJogo);
+    explicit ComandoRemoverPartida(const CodigoJogo&);
 };
 
 /**
@@ -154,7 +154,7 @@ public:
  */
 class ComandoPesquisarIngresso:public Consulta {
 public:
-    explicit ComandoPesquisarIngresso(CodigoIngresso);
+    explicit ComandoPesquisarIngresso(const CodigoIngresso&);
     Ingresso getResultado() noexcept(false);
 };
 
@@ -163,7 +163,7 @@ public:
  */
 class ComandoCadastrarIngresso:public Consulta {
 public:
-    explicit ComandoCadastrarIngresso(Ingresso);
+    explicit ComandoCadastrarIngresso(const Ingresso&);
 };
 
 /**
@@ -171,7 +171,7 @@ public:
  */
 class ComandoAtualizarIngresso:public Consulta {
 public:
-    explicit ComandoAtualizarIngresso(Ingresso);
+    explicit ComandoAtualizarIngresso(const Ingresso&);
 };
 
 /**
@@ -179,7 +179,7 @@ public:
  */
 class ComandoRemoverIngresso:public Consulta {
 public:
-    explicit ComandoRemoverIngresso(CodigoIngresso);
+    explicit ComandoRemoverIngresso(const CodigoIngresso&);
 };
 
 /**
@@ -187,7 +187,7 @@ public:
  */
 class ComandoPesquisarCartaoCredito:public Consulta {
 public:
-    explicit ComandoPesquisarCartaoCredito(NumeroCartao);
+    explicit ComandoPesquisarCartaoCredito(const NumeroCartao&);
     CartaoCredito getResultado() noexcept(false);
 };
 
@@ -196,7 +196,7 @@ public:
  */
 class ComandoCadastrarCartaoCredito:public Consulta {
 public:
-    explicit ComandoCadastrarCartaoCredito(CartaoCredito);
+    explicit ComandoCadastrarCartaoCredito(const CartaoCredito&);
 };
 
 /**
@@ -204,7 +204,7 @@ public:
  */
 class ComandoAtualizarCartaoCredito:public Consulta {
 public:
-    explicit ComandoAtualizarCartaoCredito(CartaoCredito);
+    explicit ComandoAtualizarCartaoCredito(const CartaoCredito&);
 };
 
 /**
@@ -212,7 +212,7 @@ public:
  */
 class ComandoRemoverCartaoCredito:public Consulta {
 public:
-    explicit ComandoRemoverCartaoCredito(NumeroCartao);
+    explicit ComandoRemoverCartaoCredito(const NumeroCartao&);
 };
 
 //----------------------INLINE-------------------------//

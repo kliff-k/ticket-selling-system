@@ -85,14 +85,14 @@ void Jogo::setTipo(const Tipo& tipoNovo) {
  * @param preco
  * @param disponibilidade
  */
-Partida::Partida(CodigoJogo codigoJogo, Data data, Horario horario, Preco preco, Disponibilidade disponibilidade): codigoJogo(move(codigoJogo)), data(move(data)), horario(move(horario)), preco(move(preco)), disponibilidade(move(disponibilidade)){}
+Partida::Partida(CodigoPartida codigoPartida, Data data, Horario horario, Preco preco, Disponibilidade disponibilidade): codigoPartida(move(codigoPartida)), data(move(data)), horario(move(horario)), preco(move(preco)), disponibilidade(move(disponibilidade)){}
 
 /**
  * Atribui código à partida
- * @param codigoJogo
+ * @param codigoPartida
  */
-void Partida::setCodigoJogo(const CodigoJogo & codigoJogoNovo) {
-    this->codigoJogo = codigoJogoNovo;
+void Partida::setCodigoPartida(const CodigoPartida & codigoPartidaNova) {
+    this->codigoPartida = codigoPartidaNova;
 }
 
 /**

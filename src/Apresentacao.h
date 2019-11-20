@@ -10,7 +10,7 @@
 //----------------------CLASSES------------------------//
 
 /**
- * Superclasse para a construção da interface gráfica
+ * Superclasse abstrata (interface) com para a construção da interface gráfica
  */
 class Apresentacao {
     virtual void apresentarOpcoes() = 0;
@@ -20,6 +20,26 @@ protected:
     static void notificarSucessoOperacao();
 public:
     virtual void executar() = 0;
+    WINDOW * menuwin;
+};
+
+/**
+ * Inicializa a biblioteca curses
+ */
+class Janela {
+public:
+    static void inicia();
+    static void finaliza();
+};
+
+/**
+ * Tela inicial do sistema
+ */
+class TelaInicial: public Apresentacao {
+    void apresentarOpcoes() override;
+public:
+    TelaInicial()= default;
+    void executar() override;
 };
 
 /**

@@ -55,16 +55,16 @@ public:
  */
 class Partida {
 private:
-    CodigoJogo codigoJogo;
+    CodigoPartida codigoPartida;
     Data data;
     Horario horario;
     Preco preco;
     Disponibilidade disponibilidade;
 public:
     Partida()= default;
-    Partida(CodigoJogo, Data, Horario, Preco, Disponibilidade);
-    CodigoJogo getCodigoJogo() const;
-    void setCodigoJogo(const CodigoJogo&);
+    Partida(CodigoPartida, Data, Horario, Preco, Disponibilidade);
+    CodigoPartida getCodigoPartida() const;
+    void setCodigoPartida(const CodigoPartida&);
     Data getData() const;
     void setData(const Data&);
     Horario getHorario() const;
@@ -166,10 +166,10 @@ inline Tipo Jogo::getTipo() const {
 
 /**
  * Recupera código do jogo
- * @return CodigoJogo
+ * @return CodigoPartida
  */
-inline CodigoJogo Partida::getCodigoJogo() const {
-    return CodigoJogo();
+inline CodigoPartida Partida::getCodigoPartida() const {
+    return CodigoPartida();
 }
 
 /**

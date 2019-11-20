@@ -11,12 +11,12 @@
  * @return 0
  */
 int main() {
-    // Exibe a tela de login da aplicação
-    Login login;
-    login.executar();
-    // Exibe a tela principal e inicia a navegação
-    TelaPrincipal telaPrincipal;
-    telaPrincipal.executar();
+    Janela::inicia();
+
+    TelaInicial telaInicial;
+    telaInicial.executar();
+
+    Janela::finaliza();
 
     return 0;
 }

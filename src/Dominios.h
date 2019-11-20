@@ -14,6 +14,7 @@
 #include <utility>
 #include <list>
 #include <fstream>
+#include <ncurses.h>
 #include <pqxx/pqxx>
 
 //---------------------NAMESPACES----------------------//
@@ -46,6 +47,18 @@ public:
     CodigoJogo()= default;
     explicit CodigoJogo(const string&) noexcept(false);
 };
+
+/**
+ * Código da partida
+ */
+class CodigoPartida:public Dominios {
+private:
+    void validar(string) noexcept(false) override;
+public:
+    CodigoPartida()= default;
+    explicit CodigoPartida(const string&) noexcept(false);
+};
+
 /**
  * Código do ingresso
  */
@@ -56,6 +69,7 @@ public:
     CodigoIngresso()= default;
     explicit CodigoIngresso(const string&) noexcept(false);
 };
+
 /**
  * Nome do jogo
  */
@@ -66,6 +80,7 @@ public:
     NomeJogo()= default;
     explicit NomeJogo(const string&) noexcept(false);
 };
+
 /**
  * Data do evento do jogo
  */

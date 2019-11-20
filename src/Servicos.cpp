@@ -71,9 +71,8 @@ void Consulta::executar() noexcept(false) {
  * Busca os dados do usuário com base em seu cpf
  * @param cpf
  */
-ComandoPesquisarUsuario::ComandoPesquisarUsuario(Cpf cpf) {
-    comandoSQL = "SELECT * FROM usuarios WHERE cpf = '";
-    comandoSQL += cpf.getValor() + "'";
+ComandoPesquisarUsuario::ComandoPesquisarUsuario(const Cpf& cpf) {
+    comandoSQL = "SELECT * FROM usuarios WHERE cpf = '" + cpf.getValor() + "'";
 }
 
 /**
@@ -102,39 +101,32 @@ Usuario ComandoPesquisarUsuario::getResultado() noexcept(false) {
  * Cadastra o usuário no banco
  * @param usuario
  */
-ComandoCadastrarUsuario::ComandoCadastrarUsuario(Usuario usuario) {
-    comandoSQL = "INSERT INTO usuarios VALUES (";
-    comandoSQL += "'" + usuario.getCpf().getValor() + "', ";
-    comandoSQL += "'" + usuario.getSenha().getValor() + "')";
+ComandoCadastrarUsuario::ComandoCadastrarUsuario(const Usuario& usuario) {
+    comandoSQL = "INSERT INTO usuarios VALUES ('" + usuario.getCpf().getValor() + "', '" + usuario.getSenha().getValor() + "')";
 }
 
 /**
  * Remove o usuário do banco
  * @param cpf
  */
-ComandoRemoverUsuario::ComandoRemoverUsuario(Cpf cpf) {
-    comandoSQL = "DELETE FROM usuarios WHERE cpf = ";
-    comandoSQL += cpf.getValor();
+ComandoRemoverUsuario::ComandoRemoverUsuario(const Cpf& cpf) {
+    comandoSQL = "DELETE FROM usuarios WHERE cpf = '" + cpf.getValor() + "';";
 }
 
 /**
  * Atualiza os dados do usuário
  * @param usuario
  */
-ComandoAtualizarUsuario::ComandoAtualizarUsuario(Usuario usuario) {
-    comandoSQL = "UPDATE usuarios ";
-    comandoSQL += "SET cpf = '" + usuario.getCpf().getValor() + "',";
-    comandoSQL += " senha = '" + usuario.getSenha().getValor() + "'";
-    comandoSQL += " WHERE cpf = '" + usuario.getCpf().getValor() + "';";
+ComandoAtualizarUsuario::ComandoAtualizarUsuario(const Usuario& usuario) {
+    comandoSQL = "UPDATE usuarios SET cpf = '" + usuario.getCpf().getValor() + "', senha = '" + usuario.getSenha().getValor() + "' WHERE cpf = '" + usuario.getCpf().getValor() + "';";
 }
 
 /**
  * Busca os dados do jogo com base no seu código
  * @param codigoJogo
  */
-ComandoPesquisarJogo::ComandoPesquisarJogo(CodigoJogo codigoJogo) {
-    comandoSQL = "SELECT * FROM jogos WHERE codigoJogo = ";
-    comandoSQL += codigoJogo.getValor();
+ComandoPesquisarJogo::ComandoPesquisarJogo(const CodigoJogo& codigoJogo) {
+    comandoSQL = "SELECT * FROM jogos WHERE codigoJogo = '" + codigoJogo.getValor() + "';";
 }
 
 /**
@@ -175,43 +167,32 @@ Jogo ComandoPesquisarJogo::getResultado() noexcept(false) {
  * Cadastra um novo jogo no banco
  * @param jogo
  */
-ComandoCadastrarJogo::ComandoCadastrarJogo(Jogo jogo) {
-    comandoSQL = "INSERT INTO jogos VALUES (";
-    comandoSQL += "'" + jogo.getNomeJogo().getValor() + "', ";
-    comandoSQL += "'" + jogo.getCidade().getValor() + "', ";
-    comandoSQL += "'" + jogo.getEstado().getValor() + "', ";
-    comandoSQL += "'" + jogo.getTipo().getValor() + "') ";
+ComandoCadastrarJogo::ComandoCadastrarJogo(const Jogo& jogo) {
+    comandoSQL = "INSERT INTO jogos VALUES ('" + jogo.getNomeJogo().getValor() + "', '" + jogo.getCidade().getValor() + "', '" + jogo.getEstado().getValor() + "', '" + jogo.getTipo().getValor() + "') ";
 }
 
 /**
  * Remove um jogo do banco
  * @param codigoJogo
  */
-ComandoRemoverJogo::ComandoRemoverJogo(CodigoJogo codigoJogo) {
-    comandoSQL = "DELETE FROM jogos WHERE codigoJogo = ";
-    comandoSQL += codigoJogo.getValor();
+ComandoRemoverJogo::ComandoRemoverJogo(const CodigoJogo& codigoJogo) {
+    comandoSQL = "DELETE FROM jogos WHERE codigoJogo = '" + codigoJogo.getValor() + "';";
 }
 
 /**
  * Atualiza os dados de um jogo
  * @param jogo
  */
-ComandoAtualizarJogo::ComandoAtualizarJogo(Jogo jogo) {
-    comandoSQL = "UPDATE jogos ";
-    comandoSQL += "SET nomeJogo = '" + jogo.getNomeJogo().getValor() + "',";
-    comandoSQL += " cidade = '" + jogo.getCidade().getValor() + "',";
-    comandoSQL += " estado = '" + jogo.getEstado().getValor() + "',";
-    comandoSQL += " tipo = '" + jogo.getTipo().getValor() + "'";
-    comandoSQL += " WHERE cpf = '" + jogo.getCodigoJogo().getValor() + "';";
+ComandoAtualizarJogo::ComandoAtualizarJogo(const Jogo& jogo) {
+    comandoSQL = "UPDATE jogos SET nomeJogo = '" + jogo.getNomeJogo().getValor() + "', cidade = '" + jogo.getCidade().getValor() + "', estado = '" + jogo.getEstado().getValor() + "', tipo = '" + jogo.getTipo().getValor() + "' WHERE codigoJogo = '" + jogo.getCodigoJogo().getValor() + "';";
 }
 
 /**
  * Busca os dados de uma partida
  * @param codigoJogo
  */
-ComandoPesquisarPartida::ComandoPesquisarPartida(CodigoJogo codigoJogo) {
-    comandoSQL = "SELECT * FROM partidas WHERE codigoJogo = ";
-    comandoSQL += codigoJogo.getValor();
+ComandoPesquisarPartida::ComandoPesquisarPartida(const CodigoJogo& codigoJogo) {
+    comandoSQL = "SELECT * FROM partidas WHERE codigoJogo = '" + codigoJogo.getValor() + "';";
 }
 
 /**
@@ -227,7 +208,7 @@ Partida ComandoPesquisarPartida::getResultado() noexcept(false) {
 
     resultado = listaResultado.back();
     listaResultado.pop_back();
-    partida.setCodigoJogo(CodigoJogo(resultado.getValorColuna()));
+    partida.setCodigoPartida(CodigoPartida(resultado.getValorColuna()));
 
     resultado = listaResultado.back();
     listaResultado.pop_back();
@@ -252,43 +233,32 @@ Partida ComandoPesquisarPartida::getResultado() noexcept(false) {
  * Cadastra uma nova partida no banco
  * @param partida
  */
-ComandoCadastrarPartida::ComandoCadastrarPartida(Partida partida) {
-    comandoSQL = "INSERT INTO partidas VALUES (";
-    comandoSQL += "'" + partida.getData().getValor() + "', ";
-    comandoSQL += "'" + partida.getHorario().getValor() + "', ";
-    comandoSQL += "'" + partida.getPreco().getValor() + "', ";
-    comandoSQL += "'" + partida.getDisponibilidade().getValor() + "') ";
+ComandoCadastrarPartida::ComandoCadastrarPartida(const Partida& partida) {
+    comandoSQL = "INSERT INTO partidas VALUES ('" + partida.getData().getValor() + "', '" + partida.getHorario().getValor() + "', '" + partida.getPreco().getValor() + "', '" + partida.getDisponibilidade().getValor() + "') ";
 }
 
 /**
  * Remove uma partida do banco
  * @param codigoJogo
  */
-ComandoRemoverPartida::ComandoRemoverPartida(CodigoJogo codigoJogo) {
-    comandoSQL = "DELETE FROM partidas WHERE codigoJogo = ";
-    comandoSQL += codigoJogo.getValor();
+ComandoRemoverPartida::ComandoRemoverPartida(const CodigoJogo& codigoJogo) {
+    comandoSQL = "DELETE FROM partidas WHERE codigoJogo = '" + codigoJogo.getValor() + "';";
 }
 
 /**
  * Atualiza uma partida no banco
  * @param partida
  */
-ComandoAtualizarPartida::ComandoAtualizarPartida(Partida partida) {
-    comandoSQL = "UPDATE partidas ";
-    comandoSQL += "SET data = '" + partida.getData().getValor() + "',";
-    comandoSQL += " horario = '" + partida.getHorario().getValor() + "',";
-    comandoSQL += " preco = '" + partida.getPreco().getValor() + "',";
-    comandoSQL += " disponibilidade = '" + partida.getDisponibilidade().getValor() + "'";
-    comandoSQL += " WHERE cpf = '" + partida.getCodigoJogo().getValor() + "';";
+ComandoAtualizarPartida::ComandoAtualizarPartida(const Partida& partida) {
+    comandoSQL = "UPDATE partidas SET data = '" + partida.getData().getValor() + "', horario = '" + partida.getHorario().getValor() + "', preco = '" + partida.getPreco().getValor() + "', disponibilidade = '" + partida.getDisponibilidade().getValor() + "' WHERE codigoPartida = '" + partida.getCodigoPartida().getValor() + "';";
 }
 
 /**
  * Busca os dados de um ingresso no banco
  * @param codigoIngresso
  */
-ComandoPesquisarIngresso::ComandoPesquisarIngresso(CodigoIngresso codigoIngresso) {
-    comandoSQL = "SELECT * FROM ingressos WHERE codigoIngresso = ";
-    comandoSQL += codigoIngresso.getValor();
+ComandoPesquisarIngresso::ComandoPesquisarIngresso(const CodigoIngresso& codigoIngresso) {
+    comandoSQL = "SELECT * FROM ingressos WHERE codigoIngresso = '" + codigoIngresso.getValor() + "';";
 }
 
 /**
@@ -313,37 +283,32 @@ Ingresso ComandoPesquisarIngresso::getResultado() noexcept(false) {
  * Cadastra um novo ingresso no banco
  * @param ingresso
  */
-ComandoCadastrarIngresso::ComandoCadastrarIngresso(Ingresso ingresso) {
-    comandoSQL = "INSERT INTO ingressos VALUES (";
-    comandoSQL += "'" + ingresso.getCodigoIngresso().getValor() + "') ";
+ComandoCadastrarIngresso::ComandoCadastrarIngresso(const Ingresso& ingresso) {
+    comandoSQL = "INSERT INTO ingressos VALUES ('" + ingresso.getCodigoIngresso().getValor() + "');";
 }
 
 /**
  * Remove um ingresso do banco
  * @param codigoIngresso
  */
-ComandoRemoverIngresso::ComandoRemoverIngresso(CodigoIngresso codigoIngresso) {
-    comandoSQL = "DELETE FROM ingressos WHERE codigoIngresso = ";
-    comandoSQL += codigoIngresso.getValor();
+ComandoRemoverIngresso::ComandoRemoverIngresso(const CodigoIngresso& codigoIngresso) {
+    comandoSQL = "DELETE FROM ingressos WHERE codigoIngresso = '" + codigoIngresso.getValor() + "';";
 }
 
 /**
  * Atualiza dados do ingresso no banco
  * @param ingresso
  */
-ComandoAtualizarIngresso::ComandoAtualizarIngresso(Ingresso ingresso) {
-    comandoSQL = "UPDATE jogos ";
-    comandoSQL += "SET codigoIngresso = '" + ingresso.getCodigoIngresso().getValor() + "'";
-    comandoSQL += " WHERE codigoIngresso = '" + ingresso.getCodigoIngresso().getValor() + "';";
+ComandoAtualizarIngresso::ComandoAtualizarIngresso(const Ingresso& ingresso) {
+    comandoSQL = "UPDATE jogos SET codigoIngresso = '" + ingresso.getCodigoIngresso().getValor() + "' WHERE codigoIngresso = '" + ingresso.getCodigoIngresso().getValor() + "';";
 }
 
 /**
  * Busca dados de cartão de crédito no banco
  * @param numeroCartao
  */
-ComandoPesquisarCartaoCredito::ComandoPesquisarCartaoCredito(NumeroCartao numeroCartao) {
-    comandoSQL = "SELECT * FROM cartoes WHERE numeroCartao = ";
-    comandoSQL += numeroCartao.getValor();
+ComandoPesquisarCartaoCredito::ComandoPesquisarCartaoCredito(const NumeroCartao& numeroCartao) {
+    comandoSQL = "SELECT * FROM cartoes WHERE numeroCartao = '" + numeroCartao.getValor() + "';";
 }
 
 /**
@@ -376,29 +341,22 @@ CartaoCredito ComandoPesquisarCartaoCredito::getResultado() noexcept(false) {
  * Cadastra novo cartão de crédito no banco
  * @param cartaoCredito
  */
-ComandoCadastrarCartaoCredito::ComandoCadastrarCartaoCredito(CartaoCredito cartaoCredito) {
-    comandoSQL = "INSERT INTO cartoes VALUES (";
-    comandoSQL += "'" + cartaoCredito.getNumeroCartao().getValor() + "', ";
-    comandoSQL += "'" + cartaoCredito.getDataValidade().getValor() + "', ";
-    comandoSQL += "'" + cartaoCredito.getCodigoSeguranca().getValor() + "') ";
+ComandoCadastrarCartaoCredito::ComandoCadastrarCartaoCredito(const CartaoCredito& cartaoCredito) {
+    comandoSQL = "INSERT INTO cartoes VALUES ('" + cartaoCredito.getNumeroCartao().getValor() + "', '" + cartaoCredito.getDataValidade().getValor() + "', '" + cartaoCredito.getCodigoSeguranca().getValor() + "');";
 }
 
 /**
  * Remove cartão de crédito do banco
  * @param numeroCartao
  */
-ComandoRemoverCartaoCredito::ComandoRemoverCartaoCredito(NumeroCartao numeroCartao) {
-    comandoSQL = "DELETE FROM cartoes WHERE numeroCartao = ";
-    comandoSQL += numeroCartao.getValor();
+ComandoRemoverCartaoCredito::ComandoRemoverCartaoCredito(const NumeroCartao& numeroCartao) {
+    comandoSQL = "DELETE FROM cartoes WHERE numeroCartao = '" + numeroCartao.getValor() + "';";
 }
 
 /**
  * Atualiza dados do cartão de crédito no banco
  * @param cartaoCredito
  */
-ComandoAtualizarCartaoCredito::ComandoAtualizarCartaoCredito(CartaoCredito cartaoCredito) {
-    comandoSQL = "UPDATE jogos ";
-    comandoSQL += "SET codigoSeguranca = '" + cartaoCredito.getCodigoSeguranca().getValor() + "'";
-    comandoSQL += "SET dataValidade = '" + cartaoCredito.getDataValidade().getValor() + "'";
-    comandoSQL += " WHERE numeroCartao = '" + cartaoCredito.getNumeroCartao().getValor() + "';";
+ComandoAtualizarCartaoCredito::ComandoAtualizarCartaoCredito(const CartaoCredito& cartaoCredito) {
+    comandoSQL = "UPDATE jogos SET codigoSeguranca = '" + cartaoCredito.getCodigoSeguranca().getValor() + "', dataValidade = '" + cartaoCredito.getDataValidade().getValor() + "' WHERE numeroCartao = '" + cartaoCredito.getNumeroCartao().getValor() + "';";
 }

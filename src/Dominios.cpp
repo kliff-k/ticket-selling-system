@@ -28,6 +28,30 @@ void CodigoJogo::validar(string codigoJogo) noexcept(false)
             throw invalid_argument("Código do jogo em formato incorreto (Somente números).");
     }
 }
+/**
+ * Construtor do CodigoPartida
+ * @param codigoPartida Código da partida
+ */
+CodigoPartida::CodigoPartida(const string& codigoPartida) noexcept(false)
+{
+    validar(codigoPartida);
+    valor = codigoPartida;
+}
+
+/**
+ * Valida o formato do código da partida
+ * [Formato XXX onde X é dígito (0 – 9)]
+ * @param codigoPartida Código da partida
+ */
+void CodigoPartida::validar(string codigoPartida) noexcept(false)
+{
+    if (codigoPartida.size() != 3)
+        throw invalid_argument("Código da partida em formato incorreto (XXX).");
+    for (char i : codigoPartida) {
+        if (!isdigit(i))
+            throw invalid_argument("Código da partida em formato incorreto (Somente números).");
+    }
+}
 
 /**
  * Construtor do CodigoIngresso
@@ -76,7 +100,7 @@ void NomeJogo::validar(string nomeJogo) noexcept(false)
     char lastChar = '!';
 
     if (nomeJogo.size() > 20)
-        throw invalid_argument("Nome do jogo em formato incorreto (20 dígitos).");
+        throw invalid_argument("Nome do jogo em formato incorreto (Máximo 20 dígitos).");
     for (char i : nomeJogo) {
         if (isalpha(i))
             possuiLetra = true;
@@ -396,8 +420,8 @@ void Senha::validar(string senha) noexcept(false)
     bool possuiSimbolo = false;
     char lastChar = '!';
 
-    if (senha.size() != 6)
-        throw invalid_argument("Senha em formato incorreto (6 dígitos).");
+    if (senha.size() < 6)
+        throw invalid_argument("Senha em formato incorreto (Mínimo 6 dígitos).");
     for (char i : senha) {
         if (isalpha(i))
         {
